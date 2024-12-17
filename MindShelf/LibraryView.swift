@@ -93,7 +93,7 @@ struct LibraryView: View {
                 }
             }
             .navigationTitle("Library")
-        
+            
             .foregroundColor(.accent)
             .padding()
             .toolbar {
@@ -103,6 +103,7 @@ struct LibraryView: View {
                             isEditing.toggle()  // Cambia lo stato di isEditing
                         }
                     }
+                    .font(Font.custom("Georgia", size: 20))
                     .accessibilityLabel(isEditing ? "Finish editing" : "Start editing")  // Accessibilità per il pulsante di modifica
                 }
             }

@@ -50,11 +50,12 @@ struct BookDetailView: View {
                 }
 
                 Text(book.title)
+                    .font(Font.custom("Georgia", size: 30))
                     .font(.title)
                     .padding()
 
                 Text("By \(book.authorName)")
-                    .font(.subheadline)
+                    .font(Font.custom("Georgia", size: 20))
                     .foregroundColor(.accent)
                     .padding()
 
@@ -63,10 +64,11 @@ struct BookDetailView: View {
                 // Sezione per le connessioni
                 VStack(alignment: .leading) {
                     Text("Connections")
-                        .font(.headline)
+                        .font(Font.custom("Georgia", size: 20))
                         .padding(.top)
 
                     TextEditor(text: $connection)
+                        .font(Font.custom("Georgia", size: 15))
                         .frame(height: 150)
                         .padding()
                         .background(Color.accent.opacity(0.1))
@@ -81,10 +83,10 @@ struct BookDetailView: View {
                 // Sezione per le impressioni
                 VStack(alignment: .leading) {
                     Text("Impressions")
-                        .font(.headline)
+                        .font(Font.custom("Georgia", size: 20))
                         .padding(.top)
 
-                    TextEditor(text: $impressions)
+                    TextEditor(text: $impressions).font(Font.custom("Georgia", size: 15))
                         .frame(height: 150)
                         .padding()
                         .background(Color.accent.opacity(0.1))
@@ -99,10 +101,12 @@ struct BookDetailView: View {
                 // Sezione per le domande
                 VStack(alignment: .leading) {
                     Text("Questions")
-                        .font(.headline)
+                        .font(Font.custom("Georgia", size: 20))
                         .padding(.top)
 
                     TextEditor(text: $questions)
+                        .font(Font.custom("Georgia", size: 15))
+
                         .frame(height: 150)
                         .padding()
                         .background(Color.accent.opacity(0.1))
@@ -120,6 +124,7 @@ struct BookDetailView: View {
                 Button("Save Changes") {
                     saveChanges()
                 }
+                .font(Font.custom("Georgia", size: 20))
                 .padding()
                 .foregroundColor(.accent)
                 .background(Color.accent.opacity(0.1))
@@ -159,9 +164,9 @@ struct BookDetailView: View {
             title: "Sample Book",
             authorName: "Sample Author",
             coverId: 12345,
-            connections: "Text here",
-            impressions: "Text here",
-            questions: "Text here"
+            connections: "Emotions, characters, or places that have impacted me.",
+            impressions: "With my experience, with my readings, what does this text remind me of?",
+            questions: "Is there something I don't understand? Why is that happening? If I could..."
         )
     )
 }

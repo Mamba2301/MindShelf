@@ -78,7 +78,8 @@ struct SearchView: View {
                                 save(book)
                             } label: {
                                 Text("Save")
-                                    .foregroundColor(.accent)
+                                
+                                    .font(Font.custom("Georgia", size: 20)).foregroundColor(.accent)
                 
                                     .accessibilityLabel("Save this book to your library")                            }
                         }
