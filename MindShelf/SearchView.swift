@@ -26,12 +26,14 @@ struct SearchView: View {
                         "Start searching",
                         systemImage: "magnifyingglass",
                         description: Text("Enter the name of a book")
+                            .font(Font.custom("Georgia", size: 15))
                             .foregroundColor(.accent)
                     )
                 case .inProgress:
                     ProgressView("Loading books...")
                 case .failed:
                     Text("faild")
+                        .font(Font.custom("Georgia", size: 15))
                 case .successful:
                     List(books) { book in
                         HStack {
@@ -56,17 +58,17 @@ struct SearchView: View {
 
                             VStack(alignment: .leading) {
                                 Text(book.title)
-                                    .font(.headline)
+                                    .font(Font.custom("Georgia", size: 15))
                                     .accessibilityLabel("Title: \(book.title)")
 
                                 if let authors = book.authorName {
                                     Text(authors.joined(separator: ", "))
-                                        .font(.subheadline)
+                                        .font(Font.custom("Georgia", size: 15))
                                         .foregroundColor(.accent)
                                         .accessibilityLabel("Authors: \(authors.joined(separator: ", "))")
                                 } else {
                                     Text("Unknown Author")
-                                        .font(.subheadline)
+                                        .font(Font.custom("Georgia", size: 15))
                                         .foregroundColor(.accent)
                                         .accessibilityLabel("Unknown Author")
                                 }

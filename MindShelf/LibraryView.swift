@@ -56,14 +56,13 @@ struct LibraryView: View {
                                         }
                                         
                                         Text(savedBook.title)
-                                            .font(.caption)
+                                            .font(Font.custom("Georgia", size: 15))
                                             .lineLimit(1)  // Limita il testo del titolo a una sola linea
                                             .foregroundColor(.accent)
                                             .accessibilityLabel("Title: \(savedBook.title)")  // Accessibilità per il titolo
                                         
                                         Text(savedBook.authorName)
-                                            .font(.caption)
-                                            //.font(.caption2)
+                                            .font(Font.custom("Georgia", size: 15))
                                             .foregroundColor(.accent)
                                             .lineLimit(1)  // Limita il testo del nome autore a una sola linea
                                             .accessibilityLabel("Author: \(savedBook.authorName)")  // Accessibilità per l'autore
