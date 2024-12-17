@@ -32,7 +32,7 @@ struct SearchView: View {
                 case .inProgress:
                     ProgressView("Loading books...")
                 case .failed:
-                    Text("faild")
+                    Text("No exact matches found")
                         .font(Font.custom("Georgia", size: 15))
                 case .successful:
                     List(books) { book in

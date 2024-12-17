@@ -67,16 +67,27 @@ struct BookDetailView: View {
                         .font(Font.custom("Georgia", size: 20))
                         .padding(.top)
 
-                    TextEditor(text: $connection)
-                        .font(Font.custom("Georgia", size: 15))
-                        .frame(height: 150)
-                        .padding()
-                        .background(Color.accent.opacity(0.1))
-                        .cornerRadius(8)
-                        .border(Color.accent, width: 1)
-                        .onSubmit {
-                            dismissKeyboard()
+                    ZStack(alignment: .topLeading) {
+                        TextEditor(text: $connection)
+                            .font(Font.custom("Georgia", size: 15))
+                            .frame(height: 150)
+                            .padding()
+                            .background(Color.accent
+                                .opacity(0.0))
+                            .cornerRadius(8)
+                            .border(Color.accent, width: 1)
+                            .onSubmit {
+                                dismissKeyboard()
+                            }
+                        
+                        if connection.isEmpty {
+                            Text("Emotions, characters, or places that have impacted me.")
+                                .foregroundColor(.gray)
+                                .font(Font.custom("Georgia", size: 15))
+                                .padding(.top, 8)
+                                .padding(.leading, 4)
                         }
+                    }
                 }
                 .padding(.horizontal)
 
@@ -86,15 +97,26 @@ struct BookDetailView: View {
                         .font(Font.custom("Georgia", size: 20))
                         .padding(.top)
 
-                    TextEditor(text: $impressions).font(Font.custom("Georgia", size: 15))
-                        .frame(height: 150)
-                        .padding()
-                        .background(Color.accent.opacity(0.1))
-                        .cornerRadius(8)
-                        .border(Color.accent, width: 1)
-                        .onSubmit {
-                            dismissKeyboard()
+                    ZStack(alignment: .topLeading) {
+                        TextEditor(text: $impressions)
+                            .font(Font.custom("Georgia", size: 15))
+                            .frame(height: 150)
+                            .padding()
+                            .background(Color.accent.opacity(0.0))
+                            .cornerRadius(8)
+                            .border(Color.accent, width: 1)
+                            .onSubmit {
+                                dismissKeyboard()
+                            }
+                        
+                        if impressions.isEmpty {
+                            Text("With my experience, with my readings, what does this text remind me of?")
+                                .foregroundColor(.gray)
+                                .font(Font.custom("Georgia", size: 15))
+                                .padding(.top, 8)
+                                .padding(.leading, 4)
                         }
+                    }
                 }
                 .padding(.horizontal)
 
@@ -104,17 +126,26 @@ struct BookDetailView: View {
                         .font(Font.custom("Georgia", size: 20))
                         .padding(.top)
 
-                    TextEditor(text: $questions)
-                        .font(Font.custom("Georgia", size: 15))
-
-                        .frame(height: 150)
-                        .padding()
-                        .background(Color.accent.opacity(0.1))
-                        .cornerRadius(8)
-                        .border(Color.accent, width: 1)
-                        .onSubmit {
-                            dismissKeyboard()
+                    ZStack(alignment: .topLeading) {
+                        TextEditor(text: $questions)
+                            .font(Font.custom("Georgia", size: 15))
+                            .frame(height: 150)
+                            .padding()
+                            .background(Color.accent.opacity(0.0))
+                            .cornerRadius(8)
+                            .border(Color.accent, width: 1)
+                            .onSubmit {
+                                dismissKeyboard()
+                            }
+                        
+                        if questions.isEmpty {
+                            Text("Is there something I don't understand? Why is that happening? If I could...")
+                                .foregroundColor(.gray)
+                                .font(Font.custom("Georgia", size: 15))
+                                .padding(.top, 8)
+                                .padding(.leading, 4)
                         }
+                    }
                 }
                 .padding(.horizontal)
 
@@ -152,7 +183,6 @@ struct BookDetailView: View {
             print("Changes saved successfully!")
         } catch {
             print("Error saving changes: \(error)")
-            
         }
         dismiss()
     }
@@ -170,3 +200,4 @@ struct BookDetailView: View {
         )
     )
 }
+
