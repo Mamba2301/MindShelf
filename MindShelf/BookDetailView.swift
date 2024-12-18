@@ -17,13 +17,13 @@ extension View {
 struct BookDetailView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) var modelContext
-    var book: Book // Qui dichiarato come proprietà della View
+    var book: Book
     
     @State private var connection: String
     @State private var impressions: String
     @State private var questions: String
 
-    // Modifica dell'init per inizializzare correttamente le proprietà
+    
     init(book: Book) {
         self.book = book
         _connection = State(initialValue: book.connections)
@@ -34,7 +34,7 @@ struct BookDetailView: View {
     var body: some View {
         ScrollView {
             VStack {
-                // Mostra la copertina del libro se disponibile
+                
                 if let coverId = book.coverId {
                     AsyncImage(
                         url: URL(string: "https://covers.openlibrary.org/b/id/\(coverId)-M.jpg")
@@ -61,7 +61,7 @@ struct BookDetailView: View {
 
                 Spacer()
 
-                // Sezione per le connessioni
+              
                 VStack(alignment: .leading) {
                     Text("Connections")
                         .font(Font.custom("Georgia", size: 20))
@@ -91,7 +91,6 @@ struct BookDetailView: View {
                 }
                 .padding(.horizontal)
 
-                // Sezione per le impressioni
                 VStack(alignment: .leading) {
                     Text("Impressions")
                         .font(Font.custom("Georgia", size: 20))
@@ -120,7 +119,7 @@ struct BookDetailView: View {
                 }
                 .padding(.horizontal)
 
-                // Sezione per le domande
+               
                 VStack(alignment: .leading) {
                     Text("Questions")
                         .font(Font.custom("Georgia", size: 20))
@@ -151,7 +150,7 @@ struct BookDetailView: View {
 
                 Spacer()
 
-                // Bottone per salvare i cambiamenti
+               
                 Button("Save Changes") {
                     saveChanges()
                 }
@@ -170,14 +169,14 @@ struct BookDetailView: View {
         .padding()
     }
 
-    // Funzione per salvare le modifiche
+   
     private func saveChanges() {
-        // Modifica direttamente le proprietà dell'oggetto book
+        
         book.connections = connection
         book.impressions = impressions
         book.questions = questions
 
-        // Salva il modello nel contesto
+      
         do {
             try modelContext.save()
             print("Changes saved successfully!")

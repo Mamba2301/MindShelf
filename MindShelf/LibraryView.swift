@@ -15,7 +15,7 @@ struct LibraryView: View {
     @Query private var savedBooksNew: [Book]
 
     @State private var isEditing = false
-    // Definisci il layout della griglia (numero di colonne)
+    
     private let gridItems = [GridItem(.flexible()), GridItem(.flexible())]
 
     var body: some View {
@@ -25,11 +25,11 @@ struct LibraryView: View {
                     ContentUnavailableView(
                         "No books saved yet", systemImage: "book.pages")
                 } else {
-                    // LazyVGrid per una visualizzazione a griglia
+                   
                     ScrollView {
                         LazyVGrid(columns: gridItems, spacing: 16) {
                             ForEach(savedBooksNew) { savedBook in
-                                // Aggiungi un NavigationLink per la navigazione al dettaglio
+                              
                                 NavigationLink(destination: BookDetailView(book: savedBook)
                                 ) {
                                     VStack {
@@ -44,10 +44,9 @@ struct LibraryView: View {
                                                     .scaledToFit()
                                                     .frame(
                                                         width: 100, height: 150
-                                                    )  // Imposta le dimensioni della copertina
+                                                    )
                                                     .cornerRadius(10)
-                                                    .accessibilityLabel("Cover image of \(savedBook.title)")  // Accessibilità per l'immagine
-                                            } placeholder: {
+                                                    .accessibilityLabel("Cover image of \(savedBook.title)")             } placeholder: {
                                                 ProgressView()
                                                     .progressViewStyle(
                                                         CircularProgressViewStyle()
@@ -57,25 +56,25 @@ struct LibraryView: View {
                                         
                                         Text(savedBook.title)
                                             .font(Font.custom("Georgia", size: 15))
-                                            .lineLimit(1)  // Limita il testo del titolo a una sola linea
+                                            .lineLimit(1)
                                             .foregroundColor(.accent)
-                                            .accessibilityLabel("Title: \(savedBook.title)")  // Accessibilità per il titolo
+                                            .accessibilityLabel("Title: \(savedBook.title)")
                                         
                                         Text(savedBook.authorName)
                                             .font(Font.custom("Georgia", size: 15))
                                             .foregroundColor(.accent)
-                                            .lineLimit(1)  // Limita il testo del nome autore a una sola linea
-                                            .accessibilityLabel("Author: \(savedBook.authorName)")  // Accessibilità per l'autore
+                                            .lineLimit(1)
+                                            .accessibilityLabel("Author: \(savedBook.authorName)")
                                     }
                                     .padding(8)
                                     .background(
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(Color.accent))  // Aggiungi un bordo per il libro
+                                            .stroke(Color.accent))
                                 }
                                 
                                 if isEditing {
                                     Button(action: {
-                                        deleteBook(from: savedBook)  // Chiama la funzione di eliminazione
+                                        deleteBook(from: savedBook)
                                     }) {
                                         Image(systemName: "xmark.square.fill")
                                             .font(.title)
@@ -99,11 +98,11 @@ struct LibraryView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(isEditing ? "Done" : "Edit") {
                         withAnimation {
-                            isEditing.toggle()  // Cambia lo stato di isEditing
+                            isEditing.toggle()  
                         }
                     }
                     .font(Font.custom("Georgia", size: 20))
-                    .accessibilityLabel(isEditing ? "Finish editing" : "Start editing")  // Accessibilità per il pulsante di modifica
+                    .accessibilityLabel(isEditing ? "Finish editing" : "Start editing")  
                 }
             }
         }
