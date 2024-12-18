@@ -2,8 +2,8 @@
 MindShelf is an iOS app built with Xcode that helps users find books online, save book covers, and organize them with a custom "Y-schema" (Connections, Impressions, Questions) to aid memory and understanding.
 
 ![App Screenshot](AppScreen.jpg)
-![App Screenshot](AppScreen1.jpg)
-![App Screenshot](appScreen.jpg)
+![App Screenshot](AppScreen1.jpeg)
+![App Screenshot](appScreen.jpeg)
 
 
 ## Features
