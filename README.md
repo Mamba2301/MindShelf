@@ -20,7 +20,6 @@ To get started with MindShelf, follow these steps:
 
 ## Credits
 - [Open Library API](https://openlibrary.org/) for book data and images.
-- Special thanks to John Doe for UI design feedback.
 
 ## License
 This project is **not available for public use**. You can only use it with my explicit consent. All rights reserved.
